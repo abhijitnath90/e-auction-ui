@@ -51,12 +51,24 @@ class GetBidDetails extends Component {
                 {
                     bidRows.length ? 
                     <div>
-                        <label>Product Name </label><div>{productName}</div>
-                        <label>Short Description </label><div>{shortDescription}</div>
-                        <label>Detailed Description </label><div>{detailedDescription}</div>
-                        <label>Category </label><div>{category}</div>
-                        <label>Starting Price </label><div>{startingPrice}</div>
-                        <label>Bid End Date </label><div>{bidEndDate}</div>
+                        <div>
+                            <label>Product Name </label>{productName}
+                        </div>
+                        <div>
+                            <label>Short Description </label>{shortDescription}
+                        </div>
+                        <div>
+                            <label>Detailed Description </label>{detailedDescription}
+                        </div>
+                        <div>
+                            <label>Category </label>{category}
+                        </div>
+                        <div>
+                            <label>Starting Price </label>{startingPrice}
+                        </div>
+                        <div>
+                            <label>Bid End Date </label>{bidEndDate}
+                        </div>
                     </div> : null
                 }
             </div>
