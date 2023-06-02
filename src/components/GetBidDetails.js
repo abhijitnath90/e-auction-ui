@@ -41,7 +41,7 @@ class GetBidDetails extends Component {
         if(productExist) {
             bidRows.map(row => bidJA.push(row.bid))
         }
-        console.log('Value of bidJA is '+JSON.stringify(bidJA));
+        //console.log('Value of bidJA is '+JSON.stringify(bidJA));
         return(
             <div>
                 <form onSubmit={this.handleSubmit}>
@@ -58,18 +58,27 @@ class GetBidDetails extends Component {
                 <br></br><br></br>
                 {
                     bidRows.length ? 
-                    <table style={{width: "100%"}}>
-                        <tr>
-                            <th>Bid Amount</th>
-                            <th>Name </th>
-                            <th>Email </th>
-                            <th>Phone </th>
-                        </tr>
+                    <table id="tbl">
+                        <tbody>
+                            <tr>
+                                <th>Bid Amount</th>
+                                <th>Name </th>
+                                <th>Email </th>
+                                <th>Phone </th>
+                            </tr>
+                            {bidJA.map((item, index) => (
+                            <tr key={index}>
+                                <td>{item.bidAmount}</td>
+                                <td>{item.firstName} {item.lastName}</td>
+                                <td>{item.email}</td>
+                                <td>{item.phone}</td>
+                            </tr>
+                            ))}
+                        </tbody>
                     </table> : null
+                    
                 }
-                {
-                    bidRows.length ? bidRows.map(bidRow => <BidDetails {...bidRow}/>) : null
-                }
+                
             </div>
         )
     }

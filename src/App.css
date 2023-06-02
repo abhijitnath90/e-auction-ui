@@ -52,3 +52,7 @@
   color: purple;
   font-weight: bold;
 }
+
+#tbl {
+  width: 100%;
+}
