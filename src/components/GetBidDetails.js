@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { Component } from "react";
+import ProductDetails from "./ProductDetails";
 
 class GetBidDetails extends Component {
 
@@ -33,12 +34,6 @@ class GetBidDetails extends Component {
 
     render() {
         const { bidRows } = this.state;
-        if(bidRows.length > 0) {
-            var prod = bidRows[0].product;
-            console.log(prod);
-            var { productName, shortDescription, detailedDescription, category, startingPrice, bidEndDate } = prod;
-        }
-        
         return(
             <div>
                 <form onSubmit={this.handleSubmit}>
@@ -50,27 +45,7 @@ class GetBidDetails extends Component {
                 </form>
                 <br></br>
                 {
-                    bidRows.length ? 
-                    <table style={{width: "100%"}}>
-                        <tr>
-                            <td className="productLabels">Product Name </td><td className="productValues">{productName}</td>
-                        </tr>
-                        <tr>
-                            <td className="productLabels">Short Description </td><td className="productValues">{shortDescription}</td>
-                        </tr>
-                        <tr>
-                            <td className="productLabels">Detailed Description </td><td className="productValues">{detailedDescription}</td>
-                        </tr>
-                        <tr>
-                            <td className="productLabels">Category </td><td className="productValues">{category}</td>
-                        </tr>
-                        <tr>
-                            <td className="productLabels">Starting Price </td><td className="productValues">{startingPrice}</td>
-                        </tr>
-                        <tr>
-                            <td className="productLabels">Bid End Date </td><td className="productValues">{bidEndDate}</td>
-                        </tr>
-                    </table> : null
+                    bidRows.length ? <ProductDetails {...bidRows[0].product}/> : null
                 }
             </div>
         )
