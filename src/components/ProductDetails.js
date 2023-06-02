@@ -7,7 +7,7 @@ class ProductDetails extends Component {
     }
 
     render() {
-        console.log("Inside ProductDetails Component render method. Value of props is "+this.props);
+        //console.log("Inside ProductDetails Component render method. Value of props is "+this.props);
         const { productName, shortDescription, detailedDescription, category, startingPrice, bidEndDate } = this.props
         return(
             <div>

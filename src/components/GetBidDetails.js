@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { Component } from "react";
 import ProductDetails from "./ProductDetails";
+import BidDetails from "./BidDetails";
 
 class GetBidDetails extends Component {
 
@@ -45,7 +46,11 @@ class GetBidDetails extends Component {
                 </form>
                 <br></br>
                 {
-                    bidRows.length ? <ProductDetails {...bidRows[0].product}/> : null
+                    bidRows.length ? <ProductDetails {...bidRows[0].product} /> : null
+                }
+                <br></br><br></br>
+                {
+                    bidRows.length ? bidRows.map(bidRow => <BidDetails {...bidRow}/>) : null
                 }
             </div>
         )
