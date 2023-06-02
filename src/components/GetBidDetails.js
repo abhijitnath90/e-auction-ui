@@ -44,6 +44,7 @@ class GetBidDetails extends Component {
         //console.log('Value of bidJA is '+JSON.stringify(bidJA));
         return(
             <div>
+                <br></br><br></br>
                 <form onSubmit={this.handleSubmit}>
                     <div>
                         <label id="productIdLabel">Product ID </label>&nbsp;
