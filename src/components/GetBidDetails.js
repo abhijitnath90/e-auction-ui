@@ -69,7 +69,7 @@ class GetBidDetails extends Component {
                             </tr>
                             {bidJA.map((item, index) => (
                             <tr key={index}>
-                                <td>{item.bidAmount}</td>
+                                <td><input type="text" value={item.bidAmount}/></td>
                                 <td>{item.firstName} {item.lastName}</td>
                                 <td>{item.email}</td>
                                 <td>{item.phone}</td>
