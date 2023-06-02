@@ -36,3 +36,19 @@
     transform: rotate(360deg);
   }
 }
+
+.productLabels {
+  color: blue;
+  text-align: left;
+  float: left;
+}
+
+.productValues {
+  color: green;
+  text-align: left;
+}
+
+#productIdLabel {
+  color: purple;
+  font-weight: bold;
+}

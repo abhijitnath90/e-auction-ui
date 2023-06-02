@@ -43,33 +43,34 @@ class GetBidDetails extends Component {
             <div>
                 <form onSubmit={this.handleSubmit}>
                     <div>
-                        <label>Product ID: </label>
-                        <input type="text" value={this.state.productId} onChange={this.handleProductIdChange}/>
+                        <label id="productIdLabel">Product ID </label>&nbsp;
+                        <input type="text" value={this.state.productId} onChange={this.handleProductIdChange}/>&nbsp;&nbsp;
                         <button type="submit">Get All Bids</button>
                     </div>
                 </form>
+                <br></br>
                 {
                     bidRows.length ? 
-                    <div>
-                        <div>
-                            <label>Product Name </label>{productName}
-                        </div>
-                        <div>
-                            <label>Short Description </label>{shortDescription}
-                        </div>
-                        <div>
-                            <label>Detailed Description </label>{detailedDescription}
-                        </div>
-                        <div>
-                            <label>Category </label>{category}
-                        </div>
-                        <div>
-                            <label>Starting Price </label>{startingPrice}
-                        </div>
-                        <div>
-                            <label>Bid End Date </label>{bidEndDate}
-                        </div>
-                    </div> : null
+                    <table style={{width: "100%"}}>
+                        <tr>
+                            <td className="productLabels">Product Name </td><td className="productValues">{productName}</td>
+                        </tr>
+                        <tr>
+                            <td className="productLabels">Short Description </td><td className="productValues">{shortDescription}</td>
+                        </tr>
+                        <tr>
+                            <td className="productLabels">Detailed Description </td><td className="productValues">{detailedDescription}</td>
+                        </tr>
+                        <tr>
+                            <td className="productLabels">Category </td><td className="productValues">{category}</td>
+                        </tr>
+                        <tr>
+                            <td className="productLabels">Starting Price </td><td className="productValues">{startingPrice}</td>
+                        </tr>
+                        <tr>
+                            <td className="productLabels">Bid End Date </td><td className="productValues">{bidEndDate}</td>
+                        </tr>
+                    </table> : null
                 }
             </div>
         )
