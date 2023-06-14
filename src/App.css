@@ -56,3 +56,13 @@
 #tbl {
   width: 100%;
 }
+
+.errorMsg {
+  color: red;
+  font-weight: bold;
+}
+
+.successMsg {
+  color: green;
+  font-weight: bold;
+}

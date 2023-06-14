@@ -10,8 +10,8 @@
             this.state = {
                 productId: '',
                 bidRows: [],
-                isInEditMode: false,
-                bidAmt: 0
+                errMsg: '',
+                successMsg: ''
             }
         }
 
@@ -27,19 +27,16 @@
              .then(response => {
                 console.log(response);
                 this.setState({
-                    bidRows: response.data
+                    bidRows: response.data,
+                    errMsg: ''
                 })
              })
              .catch(error => {
-                console.log(error)
+                console.log(error);
+                this.setState({
+                    errMsg: 'The product has not been found.'
+                })
              })
-    }
-
-    editBidAmount = (id) => {
-        this.setState({
-            isInEditMode: !this.state.isInEditMode
-        })
-        console.log(id);
     }
 
     handleBidAmountChange = (e, id) => {
@@ -63,14 +60,22 @@
             axios.put(url)
                  .then((response) => {
                     console.log(response);
+                    this.setState({
+                        successMsg: 'The bid has been updated successfully',
+                        errMsg: ''
+                    })
                   })
                  .catch((error) => {
                     console.log(error);
+                    this.setState({
+                        successMsg: '',
+                        errMsg: 'The bid could not be updated'
+                    })
                   });
     }
 
     render() {
-        const { bidRows } = this.state;
+        const { bidRows, errMsg, successMsg } = this.state;
         //console.log('Value of bidJA is '+JSON.stringify(bidJA));
         return(
                 <div>
@@ -105,14 +110,19 @@
                                             <td>{row.bid.firstName} {row.bid.lastName}</td>
                                             <td>{row.bid.email}</td>
                                             <td>{row.bid.phone}</td>
-                                            <td><button onClick={this.editBidAmount}>Edit</button>&nbsp;<button onClick={(e) => this.updateAmount(e, rowIndex)}>Update</button></td>
+                                            <td><button onClick={(e) => this.updateAmount(e, rowIndex)}>Update Bid</button></td>
                                         </tr>
                                         ))}
                                     </tbody>
                             </table> : null
 
                         }
-
+                        {
+                            <h2 className="errorMsg">{errMsg}</h2>
+                        }
+                        {
+                            <h2 className="successMsg">{successMsg}</h2>
+                        }
                 </div>
             )
         }
